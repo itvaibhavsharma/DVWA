@@ -1,0 +1,19 @@
+version:'3'
+services:
+	mysql_db:
+		image:mysql:5.7
+		restart:always
+		environment:
+			MYSQL_ROOT_PASSWORD=ROOTPASS
+		 	MYSQL_USER:rootr
+		 	MYSQL_PASSWORD:password1
+		 	MYSQL_DATABASE:mysql
+	dwa:
+		image:itvaibhavsharma:ubuntu_dvwa
+		ports:
+			-80:80
+		restart:always
+		depends_on:
+			-mysql_db
+		
+		
